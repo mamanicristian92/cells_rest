@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('states', function (Blueprint $table) {
             $table->id();
+            $table->text('state_name');
+            $table->foreignId('country_id');
             $table->timestamps();
+            //constraints
+            $table->foreign('country_id')->references('id')->on('countries');
         });
     }
 

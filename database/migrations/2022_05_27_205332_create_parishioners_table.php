@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('docnumber');
             $table->date('birthday');
             $table->string('address');
+            $table->foreignId('city_id');
             $table->string('phonenumber');
             $table->timestamps();
         });
