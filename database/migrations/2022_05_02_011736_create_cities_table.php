@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->foreignId('state_id')->constrained('states');
+            //$table->foreignId('state_id')->constrained('states');
             $table->timestamps();
+            //constrains
+            $table->foreign('states_id')->references('id')->on('states');
+
         });
     }
 
