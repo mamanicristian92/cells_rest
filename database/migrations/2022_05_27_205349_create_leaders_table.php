@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('parishioner_id');
             $table->timestamps();
+            //constraints
             $table->foreign('parishioner_id')->references('id')->on('parishioners');
         });
     }

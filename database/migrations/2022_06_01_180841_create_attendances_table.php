@@ -22,6 +22,7 @@ return new class extends Migration
 
             $table->foreign('parishioner_id')->references('id')->on('parishioners');
             $table->foreign('cell_id')->references('id')->on('cells');
+            $table->unique(['parishioner_id','cell_id','date']);
         });
     }
 

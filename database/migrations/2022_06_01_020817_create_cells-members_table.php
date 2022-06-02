@@ -13,10 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cells', function (Blueprint $table) {
-            $table->id();
+        Schema::create('cells-members', function (Blueprint $table) {
+            $table->foreignId('cell_id');
+            $table->foreignId('parishioner_id');
             $table->timestamps();
+            //constraints
+            $table->foreign('cell_id')->references('id')->on('cells');
+            $table->foreign('parishioner_id')->references('id')->on('parishioners');
+            $table->primary(['cell_id', 'parishioner_id']);
         });
+        //
+        
     }
 
     /**
@@ -26,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cells');
+        //
     }
 };

@@ -20,10 +20,12 @@ return new class extends Migration
             $table->string('doctype');
             $table->string('docnumber');
             $table->date('birthday');
-            $table->string('address');
+            $table->text('address');
             $table->foreignId('city_id');
-            $table->string('phonenumber');
+            $table->bigInteger('phonenumber');
             $table->timestamps();
+            //constrains
+            $table->foreign('city_id')->references('id')->on('cities');
         });
         if (Schema::hasColumn('users', 'email')) {
             // The "users" table exists and has an "email" column...
