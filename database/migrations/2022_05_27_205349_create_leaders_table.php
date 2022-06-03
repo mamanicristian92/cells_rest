@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('parishioner_id');
             $table->timestamps();
-            $table->bool('enabled');
+            $table->boolean('enabled');
             //constraints
             $table->foreign('parishioner_id')->references('id')->on('parishioners');
         });

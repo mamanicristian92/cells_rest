@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('parishioners', function (Blueprint $table) {
             $table->id();
-            $table->text('lastname');
+            $table->text('lastname')->nullable;
             $table->text('firstname');
-            $table->text('doctype');
-            $table->biInteger('docnumber');
-            $table->date('birthday');
-            $table->text('address');
-            $table->foreignId('city_id');
-            $table->bigInteger('phonenumber');
+            $table->text('doctype')->nullable;
+            $table->bigInteger('docnumber')->nullable;
+            $table->date('birthday')->nullable;
+            $table->text('address')->nullable;
+            $table->foreignId('city_id')->nullable;
+            $table->bigInteger('phonenumber')->nullable;
             $table->timestamps();
             //constrains
             $table->foreign('city_id')->references('id')->on('cities');

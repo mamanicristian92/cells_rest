@@ -15,7 +15,7 @@ class ParishionersController extends Controller
     public function index()
     {
         $parishioners=Parishioner::all();
-        return articulos;
+        return $parishioners;
     }
 
     /**
