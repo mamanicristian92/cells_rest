@@ -21,3 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('parishioners', [ParishionersController::class, 'index']);
 Route::post('parishioners', [ParishionersController::class, 'store']);
+
+Route::get('countries', [CountriesController::class, 'index']);
+Route::post('countries', [CountriesController::class, 'store']);
+
+Route::get('states', [StatesController::class, 'index']);
+Route::post('states', [StatesController::class, 'store']);
+
+Route::get('cities', [CitiesController::class, 'index']);
+Route::post('cities', [CitiesController::class, 'store']);
