@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('parishioners', [ParishionersController::class, 'index']
-);
+Route::get('parishioners', [ParishionersController::class, 'index']);
+Route::post('parishioners', [ParishionersController::class, 'store']);

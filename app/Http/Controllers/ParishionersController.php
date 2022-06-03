@@ -39,7 +39,7 @@ class ParishionersController extends Controller
         $parishioner = new Parishioner();
         $parishioner->lastname = $request->lastname;
         $parishioner->firstname = $request->firstname;
-        $parishioner->doctyep = $request->doctype;
+        $parishioner->doctype = $request->doctype;
         $parishioner->docnumber = $request->docnumber;
         $parishioner->birthday = $request->birthday;
         $parishioner->address = $request->address;

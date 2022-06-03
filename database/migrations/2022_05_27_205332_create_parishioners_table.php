@@ -15,17 +15,18 @@ return new class extends Migration
     {
         Schema::create('parishioners', function (Blueprint $table) {
             $table->id();
-            $table->text('lastname')->nullable;
+            $table->text('lastname')->nullable();
             $table->text('firstname');
-            $table->text('doctype')->nullable;
-            $table->bigInteger('docnumber')->nullable;
-            $table->date('birthday')->nullable;
-            $table->text('address')->nullable;
-            $table->foreignId('city_id')->nullable;
-            $table->bigInteger('phonenumber')->nullable;
+            $table->text('doctype')->nullable();
+            $table->bigInteger('docnumber')->nullable();
+            $table->date('birthday')->nullable();
+            $table->text('address')->nullable(9);
+            $table->foreignId('city_id')->nullable();
+            $table->bigInteger('phonenumber')->nullable();
             $table->timestamps();
             //constrains
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->unique(['doctype','docnumber']);
         });
         if (Schema::hasColumn('users', 'email')) {
             // The "users" table exists and has an "email" column...

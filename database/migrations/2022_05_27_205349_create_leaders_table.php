@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('leaders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('parishioner_id');
-            $table->timestamps();
             $table->boolean('enabled');
+            $table->timestamps();
             //constraints
             $table->foreign('parishioner_id')->references('id')->on('parishioners');
         });
