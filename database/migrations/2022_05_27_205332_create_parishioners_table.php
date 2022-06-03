@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('parishioners', function (Blueprint $table) {
             $table->id();
-            $table->string('lastname');
-            $table->string('firstname');
-            $table->string('doctype');
-            $table->string('docnumber');
+            $table->text('lastname');
+            $table->text('firstname');
+            $table->text('doctype');
+            $table->biInteger('docnumber');
             $table->date('birthday');
             $table->text('address');
             $table->foreignId('city_id');
