@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParishionersController;
+use App\Http\Controllers\CountriesController;
+use App\Http\Controllers\StatesController;
+use App\Http\Controllers\CitiesController;
 
 /*
 |--------------------------------------------------------------------------

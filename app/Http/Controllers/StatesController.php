@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\State;
 
-class CitiesControllers extends Controller
+class StatesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,8 @@ class CitiesControllers extends Controller
      */
     public function index()
     {
-        $cities = State::all();
-        return $cities;
+        $states = State::all();
+        return $states;
     }
 
     /**
@@ -35,10 +36,10 @@ class CitiesControllers extends Controller
      */
     public function store(Request $request)
     {
-        $city = new State();
-        $city->name = $request->name;
-        $city->state_id = $request->state_id;
-        $city->save();
+        $state = new State();
+        $state->name = $request->name;
+        $state->country_id = $request->country_id;
+        $state->save();
     }
 
     /**
@@ -49,8 +50,8 @@ class CitiesControllers extends Controller
      */
     public function show($id)
     {
-        $city = State::finOrFail($id);
-        return $city;
+        $state = State::finOrFail($id);
+        return $state;
     }
 
     /**
@@ -73,10 +74,10 @@ class CitiesControllers extends Controller
      */
     public function update(Request $request, $id)
     {
-        $city = City::finOrFail($request->id);
-        $city->name = $request->name;
-        $city->save();
-        return $city;
+        $state = State::finOrFail($request->id);
+        $state->name = $request->name;
+        $state->save();
+        return $state;
     }
 
     /**
@@ -87,6 +88,6 @@ class CitiesControllers extends Controller
      */
     public function destroy($id)
     {
-        $city = City::destroy($id);
+        $state = State::destroy($id);
     }
 }

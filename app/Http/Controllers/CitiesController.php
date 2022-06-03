@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Country;
+use App\Models\City;
 
-class CountriesControllers extends Controller
+class CitiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CountriesControllers extends Controller
      */
     public function index()
     {
-        $countries=Country::all();
-        return $countries;
+        $cities = City::all();
+        return $cities;
     }
 
     /**
@@ -36,9 +36,10 @@ class CountriesControllers extends Controller
      */
     public function store(Request $request)
     {
-        $country = new Country();
-        $country->name = $request->name;
-        $country->save();
+        $city = new City();
+        $city->name = $request->name;
+        $city->state_id = $request->state_id;
+        $city->save();
     }
 
     /**
@@ -49,8 +50,8 @@ class CountriesControllers extends Controller
      */
     public function show($id)
     {
-        $country= Country::finOrFail($id);
-        return $country;
+        $city = City::finOrFail($id);
+        return $city;
     }
 
     /**
@@ -73,10 +74,10 @@ class CountriesControllers extends Controller
      */
     public function update(Request $request, $id)
     {
-        $country = Country::finOrFail($request->id);
-        $country->name = $request->name;
-        $country->save();
-        return $country;
+        $city = City::finOrFail($request->id);
+        $city->name = $request->name;
+        $city->save();
+        return $city;
     }
 
     /**
@@ -87,6 +88,6 @@ class CountriesControllers extends Controller
      */
     public function destroy($id)
     {
-        $country = Country::destroy($id);
+        $city = City::destroy($id);
     }
 }

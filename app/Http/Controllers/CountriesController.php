@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\State;
+use App\Models\Country;
 
-class StatesControllers extends Controller
+class CountriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class StatesControllers extends Controller
      */
     public function index()
     {
-        $states = State::all();
-        return $states;
+        $countries=Country::all();
+        return $countries;
     }
 
     /**
@@ -36,10 +36,9 @@ class StatesControllers extends Controller
      */
     public function store(Request $request)
     {
-        $state = new State();
-        $state->name = $request->name;
-        $state->country_id = $request->country_id;
-        $state->save();
+        $country = new Country();
+        $country->name = $request->name;
+        $country->save();
     }
 
     /**
@@ -50,8 +49,8 @@ class StatesControllers extends Controller
      */
     public function show($id)
     {
-        $state = State::finOrFail($id);
-        return $state;
+        $country= Country::finOrFail($id);
+        return $country;
     }
 
     /**
@@ -74,10 +73,10 @@ class StatesControllers extends Controller
      */
     public function update(Request $request, $id)
     {
-        $state = State::finOrFail($request->id);
-        $state->name = $request->name;
-        $state->save();
-        return $state;
+        $country = Country::finOrFail($request->id);
+        $country->name = $request->name;
+        $country->save();
+        return $country;
     }
 
     /**
@@ -88,6 +87,6 @@ class StatesControllers extends Controller
      */
     public function destroy($id)
     {
-        $state = State::destroy($id);
+        $country = Country::destroy($id);
     }
 }
