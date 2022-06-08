@@ -14,15 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('attendances', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('parishioner_id');
             $table->foreignId('cell_id');
             $table->date('date');
             $table->timestamps();
-
+            //constraints
             $table->foreign('parishioner_id')->references('id')->on('parishioners');
             $table->foreign('cell_id')->references('id')->on('cells');
-            $table->unique(['parishioner_id','cell_id','date']);
+            $table->primary(['parishioner_id','cell_id','date']);
         });
     }
 

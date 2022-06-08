@@ -16,9 +16,12 @@ return new class extends Migration
         Schema::create('cells', function (Blueprint $table) {
             $table->id();
             $table->text('name');
+            $table->foreignId('leader_id');
             $table->text('address');
-            $table->text('city_id');
+            $table->text('city_id')->nullable();
             $table->timestamps();
+            //constraints
+            $table->foreign('leader_id')->references('id')->on('leaders');
         });
     }
 
