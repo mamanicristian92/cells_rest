@@ -18,7 +18,9 @@ return new class extends Migration
             $table->text('name');
             $table->text('postalcode');
             $table->foreignId('state_id');
-            $table->timestamps();
+            $table->string('lat',100)->nullable();
+            $table->string('lon',100)->nullable();
+            //$table->timestamps();
             //constrains
             $table->foreign('state_id')->references('id')->on('states');
 

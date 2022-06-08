@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('eventtype_id');
             $table->text('locationname');
             $table->text('address');
+            $table->text('registerlink');
             $table->foreignId('city_id')->nullable();
             $table->timestamp('starttime');
             $table->timestamp('endtime')->nullable();

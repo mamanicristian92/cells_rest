@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->text('name');
             $table->foreignId('country_id');
-            $table->timestamps();
+            //$table->timestamps();
             //constraints
             $table->foreign('country_id')->references('id')->on('countries');
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *

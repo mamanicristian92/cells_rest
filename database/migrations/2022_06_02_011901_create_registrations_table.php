@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('parishioner_id');
+            $table->foreignId('event_id');
+            $table->boolean('attended')->nullable();
+            $table->text('link');
             $table->timestamps();
         });
     }

@@ -21,11 +21,14 @@ return new class extends Migration
             $table->bigInteger('docnumber')->nullable();
             $table->date('birthday')->nullable();
             $table->text('address')->nullable(9);
-            $table->foreignId('city_id')->nullable();
+            //$table->foreignId('city_id')->nullable();
+            $table->text('city')->nullable(9);
+            $table->foreignId('state_id')->nullable();
             $table->bigInteger('phonenumber')->nullable();
             $table->timestamps();
             //constrains
-            $table->foreign('city_id')->references('id')->on('cities');
+            //$table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('state_id')->references('id')->on('states');
             $table->unique(['doctype','docnumber']);
         });
         if (Schema::hasColumn('users', 'email')) {
