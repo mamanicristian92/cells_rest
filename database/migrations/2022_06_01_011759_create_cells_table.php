@@ -19,11 +19,15 @@ return new class extends Migration
             $table->foreignId('leader_id');
             $table->foreignId('assistant_id');
             $table->text('address');
-            $table->text('city_id')->nullable();
+            $table->text('city');
+            $table->foreignId('city_id')->nullable();
+            $table->foreignId('state_id')->nullable();
             $table->timestamps();
             //constraints
             $table->foreign('leader_id')->references('id')->on('leaders');
             $table->foreign('assistant_id')->references('id')->on('assistants');
+            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('state_id')->references('id')->on('states');
         });
     }
 

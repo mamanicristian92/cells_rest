@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Country;
+use App\Models\EventType;
 
-class CountriesController extends Controller
+class EventTypesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        $countries=Country::all();
-        return $countries;
+        $eventtype=EventType::all();
+        return $eventtype;
     }
 
     /**
@@ -36,9 +36,10 @@ class CountriesController extends Controller
      */
     public function store(Request $request)
     {
-        $country = new Country();
-        $country->name = $request->name;
-        $country->save();
+        $eventtype = new EventType();
+        $eventtype->name = $request->name;
+        $eventtype->description = $request->description;
+        $eventtype->save();
     }
 
     /**
@@ -49,8 +50,8 @@ class CountriesController extends Controller
      */
     public function show($id)
     {
-        $country= Country::finOrFail($id);
-        return $country;
+        $eventtype= EventType::finOrFail($id);
+        return $eventtype;
     }
 
     /**
@@ -73,10 +74,11 @@ class CountriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $country = Country::findOrFail($request->id);
-        $country->name = $request->name;
-        $country->save();
-        return $country;
+        $eventtype = EventType::findOrFail($request->id);
+        $eventtype->name = $request->name;
+        $eventtype->description = $request->description;
+        $eventtype->save();
+        return $eventtype;
     }
 
     /**
@@ -87,6 +89,6 @@ class CountriesController extends Controller
      */
     public function destroy($id)
     {
-        $country = Country::destroy($id);
+        $eventtype = EventType::destroy($id);
     }
 }

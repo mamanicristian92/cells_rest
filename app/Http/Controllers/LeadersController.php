@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Country;
+use App\Models\Leader;
 
-class CountriesController extends Controller
+class LeadersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        $countries=Country::all();
-        return $countries;
+        $leaders=Leader::all();
+        return $leaders;
     }
 
     /**
@@ -36,9 +36,10 @@ class CountriesController extends Controller
      */
     public function store(Request $request)
     {
-        $country = new Country();
-        $country->name = $request->name;
-        $country->save();
+        $leader = new Leader();
+        $leader->parishioner_id = $request->parishioner_id;
+        $leader->enabled = $request->enabled;
+        $leader->save();
     }
 
     /**
@@ -49,8 +50,7 @@ class CountriesController extends Controller
      */
     public function show($id)
     {
-        $country= Country::finOrFail($id);
-        return $country;
+        //
     }
 
     /**
@@ -73,10 +73,12 @@ class CountriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $country = Country::findOrFail($request->id);
-        $country->name = $request->name;
-        $country->save();
-        return $country;
+        $leader = Leader::findOrFail($id);
+        $leader->name = $reques->name;
+        $leader->parishioner_id = $request->parishioner_id;
+        $leader->enabled = $request->enabled;
+        $leader->save();
+        return $leader;
     }
 
     /**
@@ -87,6 +89,6 @@ class CountriesController extends Controller
      */
     public function destroy($id)
     {
-        $country = Country::destroy($id);
+        $leader = Country::destroy($id);
     }
 }

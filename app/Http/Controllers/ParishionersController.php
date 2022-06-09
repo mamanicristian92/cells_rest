@@ -88,6 +88,7 @@ class ParishionersController extends Controller
         $parishioner->birthday = $request->birthday;
         $parishioner->address = $request->address;
         $parishioner->city_id = $request->city_id;
+        $parishioner->city = $request->city;
         $parishioner->phonenumber = $request->phonenumber;
 
         $parishioner->save();
@@ -105,3 +106,4 @@ class ParishionersController extends Controller
         $parishioner = Parishioner::destroy($id);
     }
 }
+

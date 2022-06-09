@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Country;
+use App\Models\Cells;
 
-class CountriesController extends Controller
+class CellsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        $countries=Country::all();
-        return $countries;
+        $cells = Cell::all();
+        return $cells;
     }
 
     /**
@@ -36,9 +36,16 @@ class CountriesController extends Controller
      */
     public function store(Request $request)
     {
-        $country = new Country();
-        $country->name = $request->name;
-        $country->save();
+        $cell = new Cell();
+        $cell->name = $request->name;
+        $cell->leader_id = $request->leader_id;
+        $cell->assistant_id = $request->assistant_id;
+        $cell->address = $request->address;
+        $cell->city = $request->city;
+        $cell->city_id = $request->city_id;
+        $cell->state_id = $request->state_id;
+        $cell->save();
+        //return $cell;
     }
 
     /**
@@ -49,8 +56,7 @@ class CountriesController extends Controller
      */
     public function show($id)
     {
-        $country= Country::finOrFail($id);
-        return $country;
+        //
     }
 
     /**
@@ -73,10 +79,16 @@ class CountriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $country = Country::findOrFail($request->id);
-        $country->name = $request->name;
-        $country->save();
-        return $country;
+        $cell = Cell::findOrFail($id);
+        $cell->name = $request->name;
+        $cell->leader_id = $request->leader_id;
+        $cell->assistant_id = $request->assistant_id;
+        $cell->address = $request->address;
+        $cell->city = $request->city;
+        $cell->city_id = $request->city_id;
+        $cell->state_id = $request->state_id;
+        $cell->save();
+        return $cell;
     }
 
     /**
@@ -87,6 +99,6 @@ class CountriesController extends Controller
      */
     public function destroy($id)
     {
-        $country = Country::destroy($id);
+        $cell = Cell::destroy($id);
     }
 }

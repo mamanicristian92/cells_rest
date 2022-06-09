@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Country;
+use App\Models\Assistant;
 
-class CountriesController extends Controller
+class AssistantsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        $countries=Country::all();
-        return $countries;
+        $assistants = Assistant::all();
+        return $assistants;
     }
 
     /**
@@ -36,9 +36,9 @@ class CountriesController extends Controller
      */
     public function store(Request $request)
     {
-        $country = new Country();
-        $country->name = $request->name;
-        $country->save();
+        $assistant = new Assistant();
+        $assistant->parishioner_id = $request->parishioner_id;
+        $assistant->save();
     }
 
     /**
@@ -49,8 +49,8 @@ class CountriesController extends Controller
      */
     public function show($id)
     {
-        $country= Country::finOrFail($id);
-        return $country;
+        $assistant = Assistant::findOrFail($id);
+        return $assistant;
     }
 
     /**
@@ -73,10 +73,10 @@ class CountriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $country = Country::findOrFail($request->id);
-        $country->name = $request->name;
-        $country->save();
-        return $country;
+        $assistant = Assistant::findOrFail($id);
+        $assistant->parishioner_id = $request->parishioner_id;
+        $assistant->save();
+        return $assistant;
     }
 
     /**
@@ -87,6 +87,6 @@ class CountriesController extends Controller
      */
     public function destroy($id)
     {
-        $country = Country::destroy($id);
+        $assistant = Assistant::destroy($id);
     }
 }

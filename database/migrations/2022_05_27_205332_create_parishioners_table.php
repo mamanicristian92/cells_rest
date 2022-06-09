@@ -20,14 +20,15 @@ return new class extends Migration
             $table->text('doctype')->nullable();
             $table->bigInteger('docnumber')->nullable();
             $table->date('birthday')->nullable();
-            $table->text('address')->nullable(9);
-            //$table->foreignId('city_id')->nullable();
-            $table->text('city')->nullable(9);
+            $table->text('address')->nullable();
+            $table->text('email')->nullable()->unique();
+            $table->foreignId('city_id')->nullable();
+            $table->text('city')->nullable();
             $table->foreignId('state_id')->nullable();
-            $table->bigInteger('phonenumber')->nullable();
+            $table->text('phonenumber')->nullable();
             $table->timestamps();
             //constrains
-            //$table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('state_id')->references('id')->on('states');
             $table->unique(['doctype','docnumber']);
         });

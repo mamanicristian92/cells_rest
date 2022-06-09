@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('eventstypes', function (Blueprint $table) {
+        Schema::create('eventtypes', function (Blueprint $table) {
             $table->id();
             $table->text('name');
             $table->text('description');
-            $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eventstypes');
+        Schema::dropIfExists('eventtypes');
     }
 };

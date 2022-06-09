@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Parishioner extends Model
 {
     use HasFactory;
-    protected $fillable= ['lastname','firstname','doctype','docnumber','birthday','address','city_id','phonenumber'];
+    protected $fillable= ['lastname','firstname','doctype','docnumber','birthday','address','city_id','city','phonenumber'];
 }
