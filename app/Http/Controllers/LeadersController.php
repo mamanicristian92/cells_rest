@@ -38,7 +38,7 @@ class LeadersController extends Controller
     {
         $leader = new Leader();
         $leader->parishioner_id = $request->parishioner_id;
-        $leader->enabled = $request->enabled;
+        $leader->enabled = $request->input('enabled',true); //devuelve "enabled" si está definido
         $leader->save();
     }
 

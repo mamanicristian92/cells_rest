@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParishionersController;
 use App\Http\Controllers\LeadersController;
 use App\Http\Controllers\AssistantsController;
+
 use App\Http\Controllers\CellsController;
+use App\Http\Controllers\CellsMembersController;
 
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\EventTypesController;
@@ -41,6 +43,9 @@ Route::post('assistants', [AssistantsController::class, 'store']);
 
 Route::get('cells', [CellsController::class, 'index']);
 Route::post('cells', [CellsController::class, 'store']);
+
+Route::get('cellsmembers', [CellsMembersController::class, 'index']);
+Route::post('cellsmembers', [CellsController::class, 'store']);
 
 Route::get('events', [EventsController::class, 'index']);
 Route::post('events', [EventsController::class, 'store']);
